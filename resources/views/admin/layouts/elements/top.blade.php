@@ -16,5 +16,3 @@
         </div>
     </nav>
 </header>
-
-<p>Welcome to the top  Dashboard!</p>

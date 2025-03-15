@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CategoryController;
+
 Route::get('/', function () {
     return view('admin.layouts.home');
 
@@ -11,14 +16,11 @@ Route::get('/contact', function () {
     return view('admin.layouts.contact', ['name' => 'Test User']);
 });
 
-Route::get('/news', function () {
-    return view('admin.layouts.news'); // Trả về view news.blade.php
-});
 
 Route::get('/home', function () {
     return view('admin.layouts.home');
 });
-
+ 
 
 Route::get('/master', function () {
     return view('admin.layouts.master'); // Trả về view master.blade.php
@@ -27,11 +29,11 @@ Route::get('/master', function () {
 Route::get('/top', function () {
     return view('admin.layouts.elements.top'); // Trả về view top.blade.php
 });
+// routes/web.php
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::resource('admincp/category', AdminCategoryController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('news', NewsController::class);
+Route::resource('categories', CategoryController::class);

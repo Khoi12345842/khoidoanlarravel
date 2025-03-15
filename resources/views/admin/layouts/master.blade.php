@@ -43,4 +43,3 @@
     <script src="{{ asset('layouts/js/main.js') }}"></script>
 </body>
 </html>
-j

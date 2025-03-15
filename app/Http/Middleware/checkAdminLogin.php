@@ -1,5 +1,8 @@
 <?php
 
+
+
+// su li tac vu cung voi controlercontroler
 namespace App\Http\Middleware;
 
 use Closure;

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     
     Route::prefix('admincp')
          ->middleware('web')
-         ->namespace($this->namespace)
+         ->namespace('App\Http\Controllers\Admin')
          ->group(base_path('routes/web.php'));
 }
 
