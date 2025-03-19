@@ -8,28 +8,10 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
-    return view('admin.layouts.home');
+    return view('admin.home');
 
 });
 
-Route::get('/contact', function () {
-    return view('admin.layouts.contact', ['name' => 'Test User']);
-});
-
-
-Route::get('/home', function () {
-    return view('admin.layouts.home');
-});
- 
-
-Route::get('/master', function () {
-    return view('admin.layouts.master'); // Trả về view master.blade.php
-});
-
-Route::get('/top', function () {
-    return view('admin.layouts.elements.top'); // Trả về view top.blade.php
-});
-// routes/web.php
 
 
 
@@ -37,3 +19,7 @@ Route::resource('admincp/category', AdminCategoryController::class);
 
 Route::resource('news', NewsController::class);
 Route::resource('categories', CategoryController::class);
+
+Route::get('/downloadImage', function() {
+    include base_path('downloadImage.php'); // Dùng base_path() để đảm bảo đường dẫn chính xác
+})->name('download.image');
