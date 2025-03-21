@@ -42,7 +42,7 @@
             <span class="cart-count">0</span>
         </a>
         <div class="user-box">
-            <a href="#" class="user-icon" id="user-toggle">
+            <a href="{{ route('admin.login') }}" class="user-icon" id="user-toggle">
                 <img src="{{ asset('images/user-icon.png') }}" alt="User" style="height: 20px;">
             </a>
 

@@ -2,17 +2,24 @@
 
 // Mảng chứa tên các hình ảnh và URL tương ứng
 $images = [
-    "savani-logo.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "cart-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "user-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "baohanh-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "visa-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "facebook-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "youtube-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "instagram-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "zalo-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-    "lazada-icon.png" => "https://scontent-hkg4-2.xx.fbcdn.net/v/t39.30808-6/484812960_122115892238755481_7281440840027844372_n.jpg?stp=dst-jpg_p600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeF8TGwqev02BKUIXDNXDrY1dKAC4vYnePF0oALi9id48VMS36N2FcojUn1ttWDaESligD4X22XnJ0b4E8isvckX&_nc_ohc=HZ3WwZcJ3LgQ7kNvgFgZ0zH&_nc_oc=AdhcImoPxd5tHLUju2JhOoJ0qkqXCLLLmk7CHlWTTKsknqg6QwrIUq6VpdrL3V4qM8k&_nc_zt=23&_nc_ht=scontent-hkg4-2.xx&_nc_gid=ZqKj4o4m1bLwDaQtSQsvyw&oh=00_AYGSPflFQmAnTDdfvM9qJqd4v5sI2h4UCEqxSoQrAhwyeg&oe=67DEEEBB",
-];
+    "login.png" => "https://tse4.mm.bing.net/th?id=OIP.RAZJigrDViiKFJ6eIR1I0gHaHa&pid=Api&P=0&h=180", // Add URL for login.png
+    "search-icon.png" => "https://tse3.mm.bing.net/th?id=OIP._RTO9yp1xH5aQA0vS7fpHAHaHW&pid=Api&P=0&h=180", // Add URL for seach-icon.png
+    "savani-logo.png" => "https://tse1.mm.bing.net/th?id=OIP.7JOH_q_p5F5uUnCy1bauzAHaEC&pid=Api&P=0&h=180",
+    "cart-icon.png" => "https://tse4.mm.bing.net/th?id=OIP.eigxI83-OFKQKZJZSoHaKwHaHa&pid=Api&P=0&h=180",
+    "user-icon.png" => "https://tse2.mm.bing.net/th?id=OIP.Crq9sn3Qu3HyHwPJi2zW8QHaHa&pid=Api&P=0&h=180",
+    "baohanh-icon.png" => "https://tse3.mm.bing.net/th?id=OIP.pIuMciKLcAOJ6cOcvciUBAHaHa&pid=Api&P=0&h=180",   
+    "visa-icon.png" => "https://tse4.mm.bing.net/th?id=OIP.IuIHY-f7cXScwOly97NecAHaHa&pid=Api&P=0&h=180",
+    "facebook-icon.png" => "https://tse2.mm.bing.net/th?id=OIP.T5VrbJ6XosfdUtseiJrgVwHaHa&pid=Api&P=0&h=180",
+    "youtube-icon.png" => "https://tse2.mm.bing.net/th?id=OIP.T5VrbJ6XosfdUtseiJrgVwHaHa&pid=Api&P=0&h=180",
+    "instagram-icon.png" => "https://static.vecteezy.com/system/resources/previews/012/493/083/non_2x/instagram-logo-3d-illustration-free-png.png",
+    "zalo-icon.png" => "https://tse3.mm.bing.net/th?id=OIP.92GkHrmR211foCNYsQDCzgHaHJ&pid=Api&P=0&h=180",
+    "lazada-icon.png" => "https://tse3.mm.bing.net/th?id=OIP.92GkHrmR211foCNYsQDCzgHaHJ&pid=Api&P=0&h=180",
+
+
+
+
+
+   ];
 
 // Đảm bảo rằng thư mục images trong public đã tồn tại
 $imageFolder = 'images';
