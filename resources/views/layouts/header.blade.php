@@ -4,7 +4,7 @@
             <img src="{{ asset('images/savani-logo.png') }}" alt="Savani Logo" style="height: 40px;">
         </a>
     </div>
-    <nav class="navbar">
+    {{-- <nav class="navbar">
         <ul class="main-menu">
             <li class="menu-item">
                 <a href="#">NAM</a>
@@ -28,6 +28,31 @@
             <li class="menu-item"><a href="#">SALE OFF</a></li>
             <li class="menu-item"><a href="#">SHOWROOM</a></li>
             <li class="menu-item"><a href="#">TIN TỨC</a></li>
+        </ul>
+    </nav> --}}
+    <nav class="navbar">
+        <ul class="nav-menu">
+            @foreach($menus as $menu)
+                <li class="nav-item {{ $menu->children->isNotEmpty() ? 'has-dropdown' : '' }}">
+                    <a href="{{ $menu->link }}" 
+                       class="{{ request()->is(str_replace('/', '', $menu->link)) ? 'active' : '' }}"
+                       {{ $menu->new_tab ? 'target="_blank"' : '' }}>
+                        {{ $menu->title }}
+                    </a>
+                    @if($menu->children->isNotEmpty())
+                        <ul class="dropdown-menu">
+                            @foreach($menu->children as $child)
+                                <li>
+                                    <a href="{{ $child->link }}"
+                                       {{ $child->new_tab ? 'target="_blank"' : '' }}>
+                                        {{ $child->title }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </li>
+            @endforeach
         </ul>
     </nav>
     <div class="search-cart">

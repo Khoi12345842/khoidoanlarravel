@@ -57,39 +57,46 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/admin/login')->with('success', 'Bạn đã đăng xuất.');
     }
-    // Đăng nhập bằng Google
-    public function redirectToGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
+// Đăng nhập bằng Google
+public function redirectToGoogle()
+{
+    return Socialite::driver('google')->redirect();
+}
 
-    public function handleGoogleCallback()
-    {
-        try {
-            $googleUser = Socialite::driver('google')->user();
-            $user = User::where('email', $googleUser->email)->first();
+public function handleGoogleCallback()
+{
+    try {
+        \Log::info('Starting Google login process');
+        $googleUser = Socialite::driver('google')->user();
+        \Log::info('Google user data: ', (array)$googleUser);
 
-            if ($user) {
-                // Nếu người dùng đã tồn tại, cập nhật thông tin (nếu cần)
-                $user->update([
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar,
-                ]);
-            } else {
-                // Nếu người dùng chưa tồn tại, tạo mới
-                $user = User::create([
-                    'name' => $googleUser->name,
-                    'email' => $googleUser->email,
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar,
-                    'password' => Hash::make(Str::random(16)), // Tạo mật khẩu ngẫu nhiên
-                ]);
-            }
+        $user = User::where('email', $googleUser->email)->first();
+        \Log::info('User lookup result: ', ['email' => $googleUser->email, 'found' => $user ? true : false]);
 
-            Auth::login($user, true);
-            return redirect()->intended('/admin/dashboard')->with('success', 'Đăng nhập bằng Google thành công!');
-        } catch (\Exception $e) {
-            return redirect()->route('login')->with('error', 'Đăng nhập bằng Google thất bại. Vui lòng thử lại.');
+        if ($user) {
+            $user->update([
+                'google_id' => $googleUser->id,
+                'avatar' => $googleUser->avatar,
+            ]);
+            \Log::info('User updated: ' . $googleUser->email);
+        } else {
+            $user = User::create([
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+                'google_id' => $googleUser->id,
+                'avatar' => $googleUser->avatar,
+                'password' => Hash::make(Str::random(16)),
+            ]);
+            \Log::info('User created: ' . $googleUser->email);
         }
+
+        Auth::login($user, true);
+        \Log::info('User logged in: ' . $googleUser->email);
+        return redirect()->intended('/')->with('success', 'Đăng nhập bằng Google thành công!');
+    } catch (\Exception $e) {
+        \Log::error('Google login failed: ' . $e->getMessage());
+        \Log::error('Stack trace: ' . $e->getTraceAsString());
+        return redirect('/admin/login')->with('error', 'Đăng nhập bằng Google thất bại. Vui lòng thử lại: ' . $e->getMessage());
     }
+}
 }

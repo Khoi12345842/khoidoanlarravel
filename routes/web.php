@@ -9,12 +9,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.app');
 
-});
+})->name('home');
 
-Route::get('/home', function () {
-    return view('home');
 
-});
 Route::get('/admin', function () {
     return view('admin.admin');
 
@@ -60,3 +57,16 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.log
 //đăng nhập bằng google 
 Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+
+
+//quản lí header trên UI
+use App\Http\Controllers\AdminMenuController;
+
+Route::prefix('admin')->group(function () {
+    Route::get('/menus', [AdminMenuController::class, 'index'])->name('admin.menus.index');
+    Route::get('/menus/create', [AdminMenuController::class, 'create'])->name('admin.menus.create');
+    Route::post('/menus', [AdminMenuController::class, 'store'])->name('admin.menus.store');
+    Route::get('/menus/{menu}/edit', [AdminMenuController::class, 'edit'])->name('admin.menus.edit');
+    Route::put('/menus/{menu}', [AdminMenuController::class, 'update'])->name('admin.menus.update');
+    Route::delete('/menus/{menu}', [AdminMenuController::class, 'destroy'])->name('admin.menus.destroy');
+});

@@ -21,3 +21,16 @@
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
+@if(session('success'))
+    <div class="alert alert-success fade-in">{{ session('success') }}</div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger fade-in">{{ session('error') }}</div>
+@endif
+@if($errors->any())
+    <div class="alert alert-danger fade-in">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif

@@ -1,8 +1,5 @@
 <?php
 
-
-
-// su li tac vu cung voi controlercontroler
 namespace App\Http\Middleware;
 
 use Closure;
@@ -16,8 +13,12 @@ class checkAdminLogin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        return $next($request);
+    public function handle($request, Closure $next, $guard = null)
+{
+    if (Auth::guard($guard)->guest()) {
+        return redirect()->route('login'); // Kiểm tra xem người dùng có đăng nhập chưa
     }
+
+    return $next($request);
+}
 }
