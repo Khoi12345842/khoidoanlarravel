@@ -9,13 +9,14 @@ class HorMenu extends Model
 
     protected $fillable = [
         'title',
-        'link',
         'mtype',
         'relate_id',
         'parent_id',
         'no',
         'new_tab',
         'active',
+        'router',
+        'params',
     ];
 
     // Quan hệ đệ quy để lấy menu con
@@ -31,4 +32,7 @@ class HorMenu extends Model
     {
         return $this->belongsTo(HorMenu::class, 'parent_id');
     }
+    protected $casts = [
+        'params' => 'array',
+    ];
 }

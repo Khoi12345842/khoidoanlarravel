@@ -15,13 +15,14 @@ class CreateHorMenuTable extends Migration
 			$table->boolean('active')->default(1);
 			$table->timestamps();
 			$table->integer('id', true);
-			$table->string('link', 300);
 			$table->boolean('mtype')->comment('1: Tin bài, 2: Sản phẩm, 3: Link');
 			$table->boolean('new_tab')->default(0);
 			$table->integer('no')->default(0);
 			$table->integer('parent_id')->nullable()->index('parent_id');
 			$table->integer('relate_id');
 			$table->string('title');
+			$table->string('router')->nullable(); // Tên route
+            $table->json('params')->nullable(); // Tham số truyền vào route
 		});
 	}
     public function down()

@@ -1,12 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\HorMenu;
 use Illuminate\Http\Request;
 
 class AdminMenuController extends Controller
 {
+
+    
+    public function warehouse()
+    {
+        $menus = HorMenu::whereNull('parent_id')
+            ->with('children')
+            ->orderBy('no', 'asc')
+            ->get();
+        return view('frontend.warehouse', compact('menus'));
+    }
     // Hiển thị danh sách menu
     public function index()
     {
@@ -29,16 +38,22 @@ class AdminMenuController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'link' => 'required|string|max:300',
             'mtype' => 'required|in:1,2,3',
             'new_tab' => 'required|boolean',
             'no' => 'required|integer',
             'parent_id' => 'nullable|exists:hor_menus,id',
             'relate_id' => 'required|integer',
             'active' => 'required|boolean',
+            'router' => 'nullable|string',
+            'params' => 'nullable|json',
         ]);
+        if (isset($data['params'])) {
+            $data['params'] = json_decode($data['params'], true);
+            $data['params'] = json_encode($data['params']);
+        }
+        
 
-        HorMenu::create($request->all());
+        HorMenu::create($request->only(['title', 'mtype', 'new_tab', 'no', 'parent_id', 'relate_id', 'active', 'router', 'params']));
 
         return redirect()->route('admin.menus.index')->with('success', 'Menu created successfully.');
     }
@@ -55,16 +70,20 @@ class AdminMenuController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'link' => 'required|string|max:300',
             'mtype' => 'required|in:1,2,3',
             'new_tab' => 'required|boolean',
             'no' => 'required|integer',
             'parent_id' => 'nullable|exists:hor_menus,id',
             'relate_id' => 'required|integer',
             'active' => 'required|boolean',
+            'router' => 'nullable|string',
+            'params' => 'nullable|json',
         ]);
-
-        $menu->update($request->all());
+        if (isset($data['params'])) {
+            $data['params'] = json_decode($data['params'], true);
+            $data['params'] = json_encode($data['params']);
+        }
+        $menu->update($request->only(['title', 'mtype', 'new_tab', 'no', 'parent_id', 'relate_id', 'active', 'router', 'params']));
 
         return redirect()->route('admin.menus.index')->with('success', 'Menu updated successfully.');
     }
@@ -72,6 +91,11 @@ class AdminMenuController extends Controller
     // Xóa menu
     public function destroy(HorMenu $menu)
     {
+
+        if ($menu->children()->count() > 0) {
+            return redirect()->route('admin.menus.index')->with('error', 'Menu cannot be deleted because it has child menus.');
+        }
+        
         $menu->delete();
         return redirect()->route('admin.menus.index')->with('success', 'Menu deleted successfully.');
     }

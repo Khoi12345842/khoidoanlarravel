@@ -4,38 +4,12 @@
             <img src="{{ asset('images/savani-logo.png') }}" alt="Savani Logo" style="height: 40px;">
         </a>
     </div>
-    {{-- <nav class="navbar">
-        <ul class="main-menu">
-            <li class="menu-item">
-                <a href="#">NAM</a>
-                <ul class="submenu">
-                    <li><a href="#">Áo Nam</a></li>
-                    <li><a href="#">Quần Nam</a></li>
-                    <li><a href="#">Phụ Kiện</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#">NỮ</a>
-                <ul class="submenu">
-                    <li><a href="#">Áo Nữ</a></li>
-                    <li><a href="#">Quần Nữ</a></li>
-                    <li><a href="#">Phụ Kiện</a></li>
-                </ul>
-            </li>
-            <li class="menu-item"><a href="#">TRẺ EM</a></li>
-            <li class="menu-item"><a href="#">ĐỒNG PHỤC</a></li>
-            <li class="menu-item"><a href="#">BỘ SƯU TẬP</a></li>
-            <li class="menu-item"><a href="#">SALE OFF</a></li>
-            <li class="menu-item"><a href="#">SHOWROOM</a></li>
-            <li class="menu-item"><a href="#">TIN TỨC</a></li>
-        </ul>
-    </nav> --}}
     <nav class="navbar">
         <ul class="nav-menu">
             @foreach($menus as $menu)
                 <li class="nav-item {{ $menu->children->isNotEmpty() ? 'has-dropdown' : '' }}">
-                    <a href="{{ $menu->link }}" 
-                       class="{{ request()->is(str_replace('/', '', $menu->link)) ? 'active' : '' }}"
+                    <a href="{{ $menu->router ? route($menu->router, $menu->params) : '#' }}"
+                       class="{{ request()->routeIs($menu->router) ? 'active' : '' }}"
                        {{ $menu->new_tab ? 'target="_blank"' : '' }}>
                         {{ $menu->title }}
                     </a>
@@ -43,7 +17,7 @@
                         <ul class="dropdown-menu">
                             @foreach($menu->children as $child)
                                 <li>
-                                    <a href="{{ $child->link }}"
+                                    <a href="{{ $child->router ? route($child->router, $child->params) : '#' }}"
                                        {{ $child->new_tab ? 'target="_blank"' : '' }}>
                                         {{ $child->title }}
                                     </a>
@@ -70,7 +44,6 @@
             <a href="{{ route('admin.login') }}" class="user-icon" id="user-toggle">
                 <img src="{{ asset('images/user-icon.png') }}" alt="User" style="height: 20px;">
             </a>
-
         </div>
     </div>
 </header>
